@@ -1,4 +1,4 @@
-package ru.netology.ru.netology.manager;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Offer;
@@ -33,7 +33,6 @@ class OfferManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-
     @Test
     void shouldReturnTicketIfContains() {
         manager = new OfferManager(repository);
@@ -55,6 +54,5 @@ class OfferManagerTest {
         Offer[] actual = manager.findAll("LED", "DME");
         assertArrayEquals(expected, actual);
     }
-
 }
 

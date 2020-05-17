@@ -1,4 +1,4 @@
-package ru.netology.ru.netology.manager;
+package ru.netology.manager;
 
 import ru.netology.domain.Offer;
 import ru.netology.repository.OfferRepository;
@@ -8,18 +8,10 @@ import java.util.Arrays;
 public class OfferManager {
 
     private OfferRepository repository;
-    private String from;
-    private String to;
 
     public OfferManager(OfferRepository repository) {
         this.repository = repository;
     }
-
-    // public OfferManager(OfferRepository repository, String from, String to) {
-    //    this.repository = repository;
-    //   this.from = from;
-    //  this.to = to;
-    //}
 
     public void offerAdd(Offer ticket) {
         repository.save(ticket);

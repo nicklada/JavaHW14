@@ -3,6 +3,7 @@ package ru.netology.repository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import ru.netology.domain.Offer;
+import ru.netology.exception.NotFoundException;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,19 +33,18 @@ public class OfferRepository {
     }
 
     public void removeById(int id) {
+        if (findById(id) == null) {
+            throw new NotFoundException("Element with id: " + id + " not found");
+        }
         int length = tickets.length - 1;
         Offer[] tmp = new Offer[length];
         int index = 0;
-        for (Offer film : tickets) {
-            if (film.getId() != id) {
-                tmp[index] = film;
+        for (Offer item : tickets) {
+            if (item.getId() != id) {
+                tmp[index] = item;
                 index++;
             }
         }
         tickets = tmp;
-    }
-
-    public void removeAll() {
-        tickets = new Offer[0];
     }
 }

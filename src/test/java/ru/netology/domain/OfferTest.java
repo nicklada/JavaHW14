@@ -13,8 +13,8 @@ class OfferTest {
 
     @Test
     void shouldSortByPrice() {
-        Offer[] expected = new Offer[] {offer3, offer1, offer2};
-        Offer[] actual = new Offer[] {offer1, offer2, offer3};
+        Offer[] expected = new Offer[]{offer3, offer1, offer2};
+        Offer[] actual = new Offer[]{offer1, offer2, offer3};
 
         Arrays.sort(actual);
 

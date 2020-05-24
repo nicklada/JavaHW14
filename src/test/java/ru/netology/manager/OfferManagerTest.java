@@ -40,7 +40,7 @@ class OfferManagerTest {
 
     @Test
     void shouldBeEmpryIfNoTickets() {
-        Comparator comparator = new OfferByTimeAscComparator();
+        Comparator<Offer> comparator = new OfferByTimeAscComparator();
         manager = new OfferManager(repository);
         Offer[] expected = new Offer[0];
         Offer[] actual = manager.findAllSortByTime("LED", "DME", comparator);
@@ -49,7 +49,7 @@ class OfferManagerTest {
 
     @Test
     void shouldBeEmpryIfNotContain() {
-        Comparator comparator = new OfferByTimeAscComparator();
+        Comparator<Offer> comparator = new OfferByTimeAscComparator();
         manager = new OfferManager(repository);
         manager.offerAdd(offer2);
         manager.offerAdd(offer4);
@@ -60,7 +60,7 @@ class OfferManagerTest {
 
     @Test
     void shouldReturnOneIfContains() {
-        Comparator comparator = new OfferByTimeAscComparator();
+        Comparator<Offer> comparator = new OfferByTimeAscComparator();
         manager = new OfferManager(repository);
         manager.offerAdd(offer2);
         manager.offerAdd(offer4);
@@ -71,7 +71,7 @@ class OfferManagerTest {
 
     @Test
     void shouldBeOneIfContains() {
-        Comparator comparator = new OfferByTimeAscComparator();
+        Comparator<Offer> comparator = new OfferByTimeAscComparator();
         manager = new OfferManager(repository);
         manager.offerAdd(offer1);
         manager.offerAdd(offer4);
@@ -87,14 +87,14 @@ class OfferManagerTest {
         manager.offerAdd(offer2);
         manager.offerAdd(offer3);
         manager.offerAdd(offer4);
-        Offer[] expected = new Offer[]{offer3,offer2};
+        Offer[] expected = new Offer[]{offer3, offer2};
         Offer[] actual = manager.findAllSortByPrice("LED", "DME");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldSortTicketsByTimeIfContains() {
-        Comparator comparator = new OfferByTimeAscComparator();
+        Comparator<Offer> comparator = new OfferByTimeAscComparator();
         manager = new OfferManager(repository);
         manager.offerAdd(offer1);
         manager.offerAdd(offer2);

@@ -50,7 +50,7 @@ class OfferManagerTest {
         manager.offerAdd(offer2);
         manager.offerAdd(offer3);
         manager.offerAdd(offer4);
-        Offer[] expected = new Offer[]{offer3,offer1};
+        Offer[] expected = new Offer[]{offer3, offer1};
         Offer[] actual = manager.findAll("LED", "DME");
         assertArrayEquals(expected, actual);
     }

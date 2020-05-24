@@ -21,10 +21,10 @@ public class OfferManager {
         Offer[] result = new Offer[0];
         for (Offer ticket : repository.findAll()) {
             if (ticket.getFrom().equalsIgnoreCase(from) && ticket.getTo().equalsIgnoreCase(to)) {
-               Offer[] tmp = new Offer[result.length+1];
-               System.arraycopy (result,0, tmp,0, result.length);
-               tmp[tmp.length-1] = ticket;
-               result = tmp;
+                Offer[] tmp = new Offer[result.length + 1];
+                System.arraycopy(result, 0, tmp, 0, result.length);
+                tmp[tmp.length - 1] = ticket;
+                result = tmp;
             }
         }
         Arrays.sort(result);
